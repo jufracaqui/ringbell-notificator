@@ -5,8 +5,8 @@
 // ----------------------------------------------------------------------------------------------------
 
 #define DEBUG 0 // [0/1] Serial debugging
-#define LOOP_INTERVAL 100  // Milliseconds. Delay for checking if the ringbell is ringing
-#define ACTIVATION_THRESHOLD 5000 // Milliseconds. Delay between ringbell activations to avoid spamming notifications
+#define LOOP_INTERVAL 50  // Milliseconds. Delay for checking if the ringbell is ringing
+#define ACTIVATION_THRESHOLD 3000 // Milliseconds. Delay between ringbell activations to avoid spamming notifications
 #define INPUT_PIN 34
 
 #define WIFI_SSID "Panic at the Cisco" // Your wifi SSID
@@ -75,6 +75,8 @@ void setup() {
   D_print("\n");
 
   sendTelegramMessage("🤖Ringbell connected!🤖");
+
+  pinMode(INPUT_PIN, INPUT);
 }
 
 long lastStateUpdate = millis();
